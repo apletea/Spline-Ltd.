@@ -17,8 +17,8 @@ module.exports = passport => {
     console.log(options.jwtFromRequest);
     passport.use(new JwtStrategy(options, (jwt_payload, done) => {
             let query = {};
-            if (jwt_payload.email){
-                query.email = jwt_payload.email;
+            if (jwt_payload.vk_id){
+                query.vk_id = jwt_payload.vk_id;
             }
 
             Model.User.findOne({where:query})

@@ -5,7 +5,7 @@
 
 let exportObject = {
     database : {
-        database : 'postgres://postgres:postgres@localhost:5432/postgres',
+        database : 'postgres://postgres:postgres@localhost:5432/inspector',
         url : 'localhost',
         port : 8080
     },

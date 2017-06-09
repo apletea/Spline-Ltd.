@@ -11,7 +11,9 @@ module.exports = (app,passport) => {
         if(file == 'index.js') return;
 
         let name = file.substr(0, file.indexOf('.'));
+        console.log(name);
         let module = require('./' + name)(express,passport);
+        console.log(module);
         app.use('/api/'+name,module);
 
     });

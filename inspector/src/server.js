@@ -7,7 +7,7 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     passport = require('passport'),
     setUpPassport = require('./init/passport'),
-    setUpRoutes = require('./routes'),
+    setUpRoutes = require('./route'),
     helmet = require('helmet'),
     app = express();
 

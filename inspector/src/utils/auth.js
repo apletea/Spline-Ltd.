@@ -7,7 +7,7 @@ let bcrypt = require('bcrypt'),
 	secretOrKey = require('../../config').secretOrKey;
 
 const compose = require('composable-middleware');
-const errorUtil = require('./errors');
+const errorUtil = require('./error');
 const responseUtil = require('./response');
 
 let comparePassword = (password, hash, cb) => {
