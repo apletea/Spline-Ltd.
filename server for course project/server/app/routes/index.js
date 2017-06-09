@@ -1,5 +1,4 @@
 let express = require('express');
-
 module.exports = (app, passport) => {
 
 	app.all('/*', function(req, res, next) {

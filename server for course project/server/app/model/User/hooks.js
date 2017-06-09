@@ -25,4 +25,4 @@ let beforeCreate = (user, options) => {
 
 module.exports = {
 	beforeCreate: beforeCreate 
-}
+};
