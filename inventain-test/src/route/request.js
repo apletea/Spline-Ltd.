@@ -5,13 +5,14 @@ let responseUtil = require('../utils/response'),
     errorCodes = require('../utils/error').errorCodes,
     checkParams = require('../utils/error').checkRequiredParams,
     requestService = require('../services/request_service'),
+    authHelper = require('../utils/auth'),
     dateUtil = require('../utils/date');
 
 
-module.exports = (express) => {
+module.exports = (express, passport) => {
     let router = express.Router();
 
-    router.post('/booking', (req,res) => {
+    router.post('/booking', authHelper.allowForUsers(passport), (req,res) => {
         let errObejct = checkParams(req.body,["timeOfSubmission","emp_id","timeBooking","duration"],errorCodes.ERR_ARGUMENT_MISSED);
         if (errObejct){
             res.status(400);

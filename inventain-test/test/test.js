@@ -13,12 +13,14 @@ chai.use(chaihttp);
 describe('api', () => {
    describe('POST /api/office/set',() => {
       it('should return office time updated', (done) => {
+
           let officeTime = {
               to: 1700,
               from : 900
-          }
+          };
           chai.request(server)
               .post('/api/office/set')
+              .set('authorization','JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJPRkZJQ0VfSUQiOjF9.m_Ej_0CM-OFpqAiQb2s1qfw537fw_4TvqSxXL10aH1Q')
               .send(officeTime)
               .end((err,res)=>{
                     res.should.have.status(200);
@@ -34,9 +36,10 @@ describe('api', () => {
              emp_id:"EMP004",
              timeBooking: "2011-03-22 16:00",
              duration:1
-         }
+         };
          chai.request(server)
              .post('/api/request/booking')
+             .set('authorization','JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJPRkZJQ0VfSUQiOjF9.m_Ej_0CM-OFpqAiQb2s1qfw537fw_4TvqSxXL10aH1Q')
              .send(request)
              .end((err, res) => {
                     res.should.have.status(200);

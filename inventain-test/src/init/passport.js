@@ -16,8 +16,9 @@ module.exports = passport => {
     console.log(options.jwtFromRequest);
     passport.use(new JwtStrategy(options, (jwt_payload, done) => {
         let query = {};
-        of (jwt_payload.MAIN_OFFICE_ID){
-            query.id = jwt_payload.MAIN_OFFICE_ID;
+        console.log(jwt_payload);
+        if (jwt_payload.OFFICE_ID){
+            query.id = jwt_payload.OFFICE_ID;
         }
 
         Model.Office.findOne({where: query})

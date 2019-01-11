@@ -3,13 +3,14 @@
  */
 let calendarService = require('../services/calendar_service'),
     responseUtil = require('../utils/response'),
+    authHelper = require('../utils/auth'),
     errorUtil = require('../utils/error').errorCodes;
 
-module.exports = (express) => {
+module.exports = (express, passport) => {
 
     let router  = express.Router();
 
-    router.get('/get', (req,res) => {
+    router.get('/get',(req,res) => {
         calendarService.getCalendar().then(calendar => {
             res.status(200);
             return res.json(responseUtil.getSuccessResponseJsonObject(calendar));
