@@ -4,9 +4,10 @@
 
 module.exports = {
     database : {
-        database : 'postgres://postgres:postgres@localhost:5432/postgres',
+        database : 'postgres://root:postgres@localhost:5432/postgres',
         url : 'localhost',
         port : 8080
     },
-    port : 8081
+    port : 8081,
+    secretOrKey : 'secretOrKey'
 };
