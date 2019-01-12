@@ -25,7 +25,9 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "jwt-simple": "*",
-    "composable-middleware": "*"
+    "composable-middleware": "*",
+    "nodemailer": "*",
+    "node-cron": "*"
   },
   "devDependencies": {
     "chai": "^4.0.2",

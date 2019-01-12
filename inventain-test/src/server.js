@@ -5,11 +5,14 @@
 
 let express = require('express'),
     bodyParser = require('body-parser'),
-    setUpRoutes = require('./route'),
-    passport = require('passport'),
-    setUpPassport = require('./init/passport'),
     helmet = require('helmet'),
+    passport = require('passport'),
+    setUpRoutes = require('./route'),
+    setUpPassport = require('./init/passport'),
+    sheduler = require('./utils/mailer'),
     app = express();
+
+
 const config = require('../config');
 
 app.use(bodyParser.urlencoded({
@@ -19,7 +22,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(passport.initialize());
-
+sheduler.sheduler.start();
 setUpPassport(passport);
 setUpRoutes(app, passport);
 
